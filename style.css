@@ -1,45 +1,61 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
     margin: 0;
+    display: grid;
+    place-items: center;
 }
 
-.container{
+.container {
     position: relative;
+    font-family: 'Press Start 2P', cursive;
     height: 90vh;
     width: 25vw;
     background-color: lightblue;
     overflow: hidden;
 }
 
-.flap{
+.pontuacao {
+    font-size: 2em;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 99;
+}
+
+.flap {
     position: absolute;
     width: 3vw;
     height: 3vw;
     background-color: blue;
     left: 10vw;
-    bottom: 48vh;
+    bottom: 38vh;
 }
 
-.canoCima, .canoBaixo{
+.canoCima,
+.canoBaixo {
     position: absolute;
     width: 5vw;
-    height: 50vh;
+    height: 70vh;
     background-color: green;
-    animation: canos 4s linear infinite;
 }
 
-.canoCima{
-    top: -20vh;
+.canoCima {
+    bottom: 80vh;
 }
-.canoBaixo{
+
+.canoBaixo {
     bottom: -20vh;
 }
 
-
-@keyframes canos{
-    to{
-        left: -10vw;
-    }
-    from{
-        left: 30vw;
-    }
+.derrota {
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    display: none;
 }
