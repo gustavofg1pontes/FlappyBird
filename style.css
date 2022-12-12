@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+}
+
+.container{
+    position: relative;
+    height: 90vh;
+    width: 25vw;
+    background-color: lightblue;
+    overflow: hidden;
+}
+
+.flap{
+    position: absolute;
+    width: 3vw;
+    height: 3vw;
+    background-color: blue;
+    left: 10vw;
+    bottom: 48vh;
+}
+
+.canoCima, .canoBaixo{
+    position: absolute;
+    width: 5vw;
+    height: 50vh;
+    background-color: green;
+    animation: canos 4s linear infinite;
+}
+
+.canoCima{
+    top: -20vh;
+}
+.canoBaixo{
+    bottom: -20vh;
+}
+
+
+@keyframes canos{
+    to{
+        left: -10vw;
+    }
+    from{
+        left: 30vw;
+    }
+}
