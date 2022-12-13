@@ -13,6 +13,7 @@ body {
     width: 25vw;
     background-color: lightblue;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .pontuacao {
@@ -27,7 +28,8 @@ body {
     position: absolute;
     width: 3vw;
     height: 3vw;
-    background-color: blue;
+    background-image: url('img/flappybird.png');
+    background-size: 100% 100%;
     left: 10vw;
     bottom: 38vh;
 }

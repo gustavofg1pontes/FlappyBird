@@ -77,8 +77,8 @@ function randomPipes() {
     if (pipes[0].offsetLeft <= -pipes[0].getBoundingClientRect().width) {
         pipes[0].style.bottom = `${Math.random() * -70}vh`
         pipes[1].style.bottom = `${parseFloat(pipes[0].style.bottom) + 100}vh`
+        posCanos = 30
         pipes.forEach(pipe => {
-            posCanos = 30
             pipe.style.left = `30vw`
         })
     }
@@ -88,10 +88,11 @@ function reset() {
     pontos = 0;
     perdeu = false
     bird.style.bottom = "38vh"
+    posCanos = 30
     pipes.forEach(pipe => {
-        posCanos = 30
         pipe.style.left = `30vw`
     })
+    velocidadeCanos = -0.02
     $(".derrota").style.display = "none";
     $(".pontuacao").innerHTML = 0
     contagem = setInterval(() => {
