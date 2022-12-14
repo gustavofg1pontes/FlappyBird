@@ -26,8 +26,8 @@ body {
 
 .flap {
     position: absolute;
-    width: 3vw;
-    height: 3vw;
+    width: 3.5vw;
+    height: 2.5vw;
     background-image: url('img/flappybird.png');
     background-size: 100% 100%;
     left: 10vw;
@@ -39,11 +39,13 @@ body {
     position: absolute;
     width: 5vw;
     height: 70vh;
-    background-color: green;
+    background-size: 100% 100%;
+    background-image: url("./img/pipe.png");
 }
 
 .canoCima {
     bottom: 80vh;
+    rotate: 180deg;
 }
 
 .canoBaixo {

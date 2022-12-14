@@ -3,6 +3,7 @@ function $(element) {
 }
 
 let pontos = 0, perdeu = false,
+    pulando = false,
     posCanos = 30,
     altura,
     puloALtura = 0,
@@ -18,25 +19,25 @@ let contagem = setInterval(() => {
     $(".pontuacao").innerHTML = pontos
 }, 1000);
 
-
-document.addEventListener("keydown", function (e) {
-    if (e.key == " ") {
-        puloALtura = .6
-        velocidadeCaindo = 0
-        setTimeout(() => {
-            velocidadeCaindo = 0
-            puloALtura = 0
-        }, 200);
-    }
-})
-document.addEventListener("click", function (e) {
+const pulo = function () {
     puloALtura = .6
     velocidadeCaindo = 0
+    bird.style.rotate = "-30deg"
+    pulando = true
     setTimeout(() => {
         velocidadeCaindo = 0
         puloALtura = 0
+        pulando = false
     }, 200);
+}
+
+document.addEventListener("keydown", function (e) {
+    if (e.key == " ") {
+        pulo()
+    }
 })
+document.addEventListener("click", pulo)
+
 
 function init() {
     requestAnimationFrame(init)
@@ -46,6 +47,7 @@ function init() {
         return
     }
 
+    if (!pulando) bird.style.rotate = (velocidadeCaindo * 100) + "deg"
     altura = parseFloat(bird.style.bottom)
     altura -= velocidadeCaindo
     velocidadeCaindo += 0.02
@@ -63,11 +65,11 @@ function init() {
 function checkColision() {
     pipes.forEach(pipe => {
         let pipeInfo = pipe.getBoundingClientRect();
-        let bir = bird.getBoundingClientRect();
-        if (pipeInfo.bottom > bir.top &&
-            pipeInfo.top < bir.bottom &&
-            pipeInfo.left < bir.right &&
-            pipeInfo.right > bir.left) {
+        let birdInfo = bird.getBoundingClientRect();
+        if (pipeInfo.bottom > birdInfo.top &&
+            pipeInfo.top < birdInfo.bottom &&
+            pipeInfo.left < birdInfo.right &&
+            pipeInfo.right > birdInfo.left) {
             perdeu = true
         }
     })
